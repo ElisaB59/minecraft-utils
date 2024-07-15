@@ -1,12 +1,8 @@
 import json
-import logging
-import collections, functools, operator
 from collections import Counter
 import decimal
 
-# create a new context for this task
 ctx = decimal.Context()
-#own converter to avoid scientific notation (e-x)
 def float_to_str(f):
     d1 = ctx.create_decimal(repr(f))
     return format(d1, 'f')
@@ -34,7 +30,7 @@ for item in data:
         deepOre["distrib"] = finalDistrib	
     if "ore" in item["block"]:
         finalData.append(item)
-            	 
+
 
 with open(filename+".merged", 'w') as f:
     json.dump(finalData, f, indent=4), 
